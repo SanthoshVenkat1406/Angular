@@ -1,0 +1,28 @@
+<!-- How to use ngForm attribute?
+we are creating the model called ProjectData
+-->
+<form #projectData="ngForm" (ngSubmit)="processData(projectData)">
+  Your ProjectID <input type="number" name="projectID" ngModel/><br>
+  Project Name <input type="text" name="projectName" ngModel/><br>
+  Project Start Date <input type="date" name="startDate" ngModel/><br>
+  Project End Date <input type="date" name="endDate" ngModel/><br><br>
+  <input type="submit" value="save"/>
+
+
+</form>
+<b> Employee Details</b>
+<table style="border:5px;border-style: groove;border-color:aquamarine;">
+  <tr>
+    <td> Project ID</td>
+    <td> Project Name</td>
+    <td> Start Date</td>
+    <td> End Date</td>
+  </tr>
+  <tr *ngFor="let p of projects_list" style="background-color: cornsilk;">
+    <td>{{p.projectID}}</td>
+    <td>{{p.projectName}}</td>
+    <td> {{p.startDate}} </td>
+    <td> {{p.endDate}} </td>
+  </tr>
+  </table>
+<router-outlet></router-outlet>

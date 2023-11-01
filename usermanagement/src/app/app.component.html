@@ -1,0 +1,17 @@
+<html>
+    <body style="background-color: antiquewhite;">
+            <b> Please signin to proceed further</b><br><br>
+            <form (ngSubmit)="addUser()">
+                <legend>
+                    User ID <input type="text" name="UserID" [(ngModel)]="user.userID" placeholder="Enter your UserID"/><br><br>
+                    Password <input type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your password"/><br><br>
+                    Email ID <input type="email" name="emailID" [(ngModel)]="user.emailID" placeholder="Enter your Email ID"/><br><br>
+
+                </legend>
+                <legend>
+                    <input type="submit" value="Add user"/> &nbsp;&nbsp;<input type="reset" value="Reset"/>
+                </legend>
+            </form>
+    </body>
+</html>
+<router-outlet></router-outlet>

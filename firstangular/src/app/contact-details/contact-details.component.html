@@ -1,0 +1,28 @@
+<p>contact-details works!</p>
+<b>Enter your contact details</b><br>
+<b>Contact details</b><br>
+<b>Name </b>{{firstName}} &nbsp;&nbsp; {{lastName}}<br>
+<b> Age </b>{{age}}<br>
+<b> Email </b>{{email}}<br>
+<b> Join Status</b>&nbsp; <input type="checkbox"
+[checked]="joinStatus"/><br>
+<b>Choose your location </b><br>
+<!-- one way binding .. MODEL TO VIEW -->
+<button [disabled]="joinStatus" [class]='styleclassname'> Confirm</button><br>
+<select size="1" value="location">
+    <option value="Bangalore"> Bangalore</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Hyderbad">Hyderbad</option>
+</select>
+<!-- CSS class binding, ONE WAY-->
+<div class="divstyle">
+    style attached using class binding..
+</div><br>
+<b> First name </b> <input type="text" [(ngModel)]="firstName" /><br>
+<b> Last name </b> <input type="text" [(ngModel)]="lastName"/><br>
+<b> Age</b> <input type="number" [(ngModel)]="age"/>&nbsp;&nbsp;<br>
+<input type="range" [(ngModel)]="age" width="150"/>
+<!-- Interpolation one way binding.. -->
+<b> Welcome Mr/Ms</b> {{firstName}} &nbsp;&nbsp;{{lastName}}
+
+

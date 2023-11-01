@@ -1,0 +1,96 @@
+<b> Personal Details</b><br><br>
+<b> First Name </b> <input type ="text" [(ngModel)]="firstName"
+(blur)="verifyFirstName($event)"/><br>
+<b> Last Name </b> <input type ="text"[(ngModel)]="lastName"/><br><br>
+<b> Age </b> <input type ="number"[(ngModel)]="age"/><br><br>
+<b> Gender </b>&nbsp;&nbsp;
+<legend>
+ <input type="radio"[(ngModel)]="gender" name="gender"/> Male<br>
+ <input type="radio"[(ngModel)]="gender" name="gender"/> Female<br>
+</legend><br>
+<select size="4" [(ngModel)]="favColour">
+  <option value="Red">RED</option>
+  <option value="Blue">BLUE</option>
+  <option value="Indigo">INDIGO</option>
+  <option value="Green">GREEN</option>
+  <option value="pink">PINK</option>
+</select><br><br>
+<div [style.color]="favColour">
+  sample preview<br>
+  sample preview<br>
+  sample preview<br>
+</div>
+<br><br>
+ <input type="checkbox" [(ngModel)]="isEnabled"/><br>
+ <div class="theme1">
+  sample of themes<br>
+  sample of themes<br>
+  sample of themes<br>
+ </div>
+ <b> Your favourite theme</b><br>
+ <select [(ngModel)]="favTheme">
+  <option value="theme1">ocean</option>
+  <option value="theme2">sea</option>
+  <option value="theme3">Mountain</option>
+  <option value="theme4">Nature</option>
+ </select>
+ <div [class]="favTheme">
+     This is {{favTheme}} theme<br>
+     This is {{favTheme}} theme<br>
+     This is {{favTheme}} theme<br>
+     This is {{favTheme}} theme<br>
+ </div>
+<input type="button" value="save"[disabled]="!isEnabled" (click)="save()"/>
+
+<div style="width:400px;height: 500px;">
+  Name {{firstName}} &nbsp;&nbsp;{{lastName}}<br>
+  Age {{age}}<br>
+  Gender {{gender}}<br>
+</div>
+<input type="checkbox"[value]="isDisplayed" [(ngModel)]="isDisplayed"/> Agree to terms and conditions <br>
+<b *ngIf="isDisplayed"><button> Make payment</button></b>
+<b *ngIf="!isDisplayed"> Kindly Agree to terms and conditions</b>
+<br><br>
+<input type="checkbox"[value]="YesNo" [(ngModel)]="YesNo"/> Agree to terms and conditions <br>
+<b *ngIf="YesNo else dontshow"><button> Make payment</button></b><br>
+<ng-template #dontshow> Kindly Agree to terms and conditions
+</ng-template>
+<br>
+
+<b *ngIf ="100 < 200; else notless">100 less than 200</b>
+<ng-template #notless><b> 100 not less than 200</b></ng-template><br><br>
+
+Enter your salary <input type="number" [(ngModel)]="salary"/><br>
+
+<br><br>
+
+<b *ngIf="salary >= 15000; else minsal">salary is meeting the standards</b><br>
+
+<ng-template #minsal><b>Salary not meeting the standards</b></ng-template>
+
+<b> Total no of employees = </b>{{names.length}}
+<ol type="1">
+  <li *ngFor="let name of names.sort()">{{names}}</li>
+</ol>
+<b>List of cities</b><br><br>
+<select size="1" [(ngModel)]="location">
+  <option value="Chennai">Chennai</option>
+  <option value="Madurai"> Madurai</option>
+  <option value="Bangalore"> Bangalore</option>
+  <option value="Mumbai"> Mumbai</option>
+</select><br><br>
+<p [ngSwitch]='location'>
+  <b *ngSwitchCase="'Bangalore'"> Your location is Garden city</b>
+  <b *ngSwitchCase="'Chennai'">Your location is Metro city</b>
+  <b *ngSwitchCase="'Madurai'">Your location is Temple city</b>
+  <b *ngSwitchCase="'Mumbai'">Your location is Dream city</b>
+</p>
+<input type="checkbox"[(ngModel)]="background"/> Want a background color ?
+<div style="width:400px;height:500px" [style.backgroundColor]="background ? 'red': 'yellow'">
+  <b> Background background background</b>
+  <b> Background background background</b>
+  <b> Background background background</b>
+  <b> Background background background</b>
+
+</div>
+<router-outlet></router-outlet>
